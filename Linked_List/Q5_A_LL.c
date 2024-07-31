@@ -102,7 +102,31 @@ int main()
 
 void frontBackSplitLinkedList(LinkedList *ll, LinkedList *resultFrontList, LinkedList *resultBackList)
 {
-	/* add your code here */
+	int size = ll->size;
+	ListNode *curr = ll->head, *prev = NULL;
+	int mid = (size+1) / 2; // 중간 인덱스
+
+	// resultFrontList 헤드 및 크기 설정
+	resultFrontList->head = ll->head;
+	resultFrontList->size = mid;
+
+	// 포인터를 mid(중간 지점)까지 이동
+	for(int i = 0; i < mid; i++) {
+		prev = curr;
+		curr = curr->next;
+	}
+
+	// resultFrontList 마지막 노드 연결 해제
+	if(prev != NULL) {
+		prev->next = NULL;
+	}
+
+	// resultBackList 헤드 및 크기 설정
+	resultBackList->head = curr;
+	resultBackList->size = size - mid;
+
+	ll->head = NULL;
+	ll->size = 0;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

@@ -109,7 +109,16 @@ int main()
 
 void recursiveReverse(Queue *q)
 {
-/* add your code here */
+	// queue의 헤드가 NULL이면 함수 종료
+	if(q->ll.head == NULL) {
+		return;
+	}
+	
+	int temp;
+	temp = dequeue(q);
+	recursiveReverse(q);
+	// 재귀가 깊은 순으로 enqueue(temp)가 이루어진다.
+	enqueue(q, temp);
 }
 
 //////////////////////////////////////////////////////////////////

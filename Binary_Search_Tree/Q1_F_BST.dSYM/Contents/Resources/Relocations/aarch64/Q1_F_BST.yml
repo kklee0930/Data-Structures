@@ -1,0 +1,13 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/kklee0930/Desktop/jungle/jungle-assessment/Binary_Search_Tree/Q1_F_BST'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x1000039F4, symSize: 0x144 }
+  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x1000039F4, symSize: 0x144 }
+  - { offsetInCU: 0x85, offset: 0x85, size: 0x8, addend: 0x0, symName: _insertBSTNode, symObjAddr: 0x144, symBinAddr: 0x100003B38, symSize: 0x10C }
+  - { offsetInCU: 0xB7, offset: 0xB7, size: 0x8, addend: 0x0, symName: _levelOrderTraversal, symObjAddr: 0x250, symBinAddr: 0x100003C44, symSize: 0x10 }
+  - { offsetInCU: 0xDB, offset: 0xDB, size: 0x8, addend: 0x0, symName: _removeAll, symObjAddr: 0x260, symBinAddr: 0x100003C54, symSize: 0x6C }
+  - { offsetInCU: 0xFF, offset: 0xFF, size: 0x8, addend: 0x0, symName: _enqueue, symObjAddr: 0x2CC, symBinAddr: 0x100003CC0, symSize: 0xB8 }
+  - { offsetInCU: 0x14D, offset: 0x14D, size: 0x8, addend: 0x0, symName: _isEmpty, symObjAddr: 0x384, symBinAddr: 0x100003D78, symSize: 0x20 }
+  - { offsetInCU: 0x175, offset: 0x175, size: 0x8, addend: 0x0, symName: _dequeue, symObjAddr: 0x3A4, symBinAddr: 0x100003D98, symSize: 0x80 }
+...

@@ -111,7 +111,10 @@ int main()
 
 void removeUntil(Stack *s, int value)
 {
-/* add your code here */
+	// stack이 비거나 pop 대상 원소가 value가 같을 때까지 pop
+	while(!isEmptyStack(s) && peek(s) != value) {
+		pop(s);
+	}
 }
 
 //////////////////////////////////////////////////////////////////////////////////

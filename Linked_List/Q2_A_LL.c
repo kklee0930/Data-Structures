@@ -103,7 +103,51 @@ int main()
 
 void alternateMergeLinkedList(LinkedList *ll1, LinkedList *ll2)
 {
-    /* add your code here */
+	// 각 LinkedList의 head 설정
+	ListNode *curr1 = ll1->head;
+	ListNode *curr2 = ll2->head;
+	ListNode *next1, *next2;
+
+	// ll1이 empty이면 ll2의 값을 모두 ll1으로 이동
+	if(!curr1 || !curr2) {
+		return;
+	}
+
+	while(curr1 && curr2) {
+		next1 = curr1->next;
+		next2 = curr2->next;
+		
+		// ll1의 현재 노드 다음 노드에 ll2의 노드 연결
+		curr1->next = curr2;
+		curr1 = next1;
+
+		// ll1에 다음 노드(next1)가 남아있으면 연결한 노드 curr2에 다음 노드(next1) 추가
+		if(curr1) {
+			curr2->next = curr1;
+		}
+		else {
+			curr2->next = NULL;
+		}
+		curr2 = next2;
+	}
+
+	ll1->size = 0;
+	curr1 = ll1->head;
+
+	// ll1의 크기 갱신
+	while(curr1 != NULL) {
+		ll1->size++;
+		curr1 = curr1->next;
+	}
+
+	ll2->head = curr2;
+	ll2->size = 0;
+	
+	// ll2의 크기 갱신
+	while(curr2 != NULL) {
+		ll2->size++;
+		curr2 = curr2->next;
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -139,7 +183,6 @@ void removeAllItems(LinkedList *ll)
 	ll->head = NULL;
 	ll->size = 0;
 }
-
 
 ListNode *findNode(LinkedList *ll, int index){
 

@@ -86,7 +86,47 @@ int main()
 
 void moveOddItemsToBack(LinkedList *ll)
 {
-	/* add your code here */
+	ListNode
+	*curr = NULL,
+	*odd_curr = NULL, *odd_start = NULL,
+	*even_curr = NULL, *even_start = NULL;
+
+	curr = ll->head;
+
+	while(curr != NULL) {
+		if(curr->item % 2 != 0) { // 홀수인 경우
+			if(odd_curr == NULL) { // 시작점이 존재하는지 판별 후 없으면 지정
+				odd_start = curr;
+				odd_curr = curr;
+			}
+			else { // 기존 odd_curr의 next를 curr로 지정
+				odd_curr->next = curr;
+				if(odd_curr->next != NULL) { // odd_curr의 포인터를 지정한 curr로 이동
+					odd_curr = odd_curr->next;
+				}
+			}
+		}
+		else { // 짝수인 경우
+			if(even_curr == NULL) { // 시작점이 존재하는지 판별 후 없으면 지정
+				even_start = curr;
+				even_curr = curr;
+			}
+			else { // 기존 even_curr의 next를 curr로 지정
+				even_curr->next = curr;
+				if(even_curr->next != NULL) { // even_curr의 포인터를 지정한 curr로 이동
+					even_curr = even_curr->next;
+				}
+			}
+		}
+		curr = curr->next;
+	}
+	if(odd_curr != NULL) {
+		odd_curr->next = NULL;
+	}
+	if(even_curr != NULL) {
+		even_curr->next = odd_start;
+		ll->head = even_start;
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

@@ -103,7 +103,29 @@ int main()
 
 int isStackPairwiseConsecutive(Stack *s)
 {
-  /* add your code here */
+	int size = s->ll.size;
+
+	// 크기가 홀수이면 0
+	if(size % 2 != 0) {
+		return 0;
+	}
+
+	int pop1, pop2;
+
+	// 스택의 크기가 없어질 때까지
+	while(size > 0) {
+		pop1 = pop(s);
+		pop2 = pop(s);
+
+		// 두 개 pop 했으므로 -2
+		size -= 2;
+		
+		// pop한 값 사이의 절댓값이 1이 아니면 0
+		if(abs(pop1 - pop2) != 1) {
+			return 0;
+		}
+	}
+	return 1;
 }
 
 //////////////////////////////////////////////////////////////////////////////////
